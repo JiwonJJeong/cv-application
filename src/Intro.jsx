@@ -3,6 +3,7 @@ import Input from './Input.jsx'
 import {Edit, Submit} from './EditSubmit.jsx'
 import {introdata} from './defaultdata.js'
 
+// next step: turn this to a generic section to be applicable to other things maybe?
 export default function Intro (){
     const [intro, setIntro] = useState(introdata);
     const [isEditing, setEditing] = useState(false);
