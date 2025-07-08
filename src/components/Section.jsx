@@ -39,10 +39,29 @@ export default function Section ({startdata}){
             </div>
         )
     }
+    const datetext = sectiondata.reduce((text, info)=> {
+        if (info.className =="datestart"){
+            return info.text + text;
+        } else if (info.className == "dateend"){   
+            return (info.text != "") ? text + "~" + info.text : text + "~current";
+        } else{
+            return text;
+        }
+    }, "")
+    console.log(datetext);
     return (
         <>
             {sectiondata.map((info)=> {
-                return <p key={info.className} className={info.className}>{info.text}</p>
+                switch (info.className){
+                    case "name":
+                        return <h2 key={info.className} className={info.className}>{info.text}</h2>
+                    case "datestart":
+                        return null;
+                    case "dateend":
+                        return <p key={info.className} className={info.className}>{datetext}</p>
+                    default:
+                        return <p key={info.className} className={info.className}>{info.text}</p>
+                }
             })}
             <Edit onclick={handleclick}/>
         </>
