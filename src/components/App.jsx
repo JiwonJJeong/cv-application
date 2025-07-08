@@ -1,4 +1,4 @@
-import './App.css'
+import '../styles/App.css'
 import Section from "./Section.jsx"
 import {introdata, educationdata, experiencedata} from './defaultdata.js'
 import { useState } from 'react'
