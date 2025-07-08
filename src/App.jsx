@@ -1,14 +1,14 @@
 import './App.css'
 import Section from "./Section.jsx"
-import {introdata} from './defaultdata.js'
+import {introdata, educationdata, experiencedata} from './defaultdata.js'
 
 function App() {
 
   return (
     <>
        < Section startdata={introdata}/>
-       {/*< EducationSection /> */}
-       {/*< ExperienceSection /> */}
+       < Section startdata={educationdata}/>
+       < Section startdata={experiencedata}/>
     </>
   )
 }
