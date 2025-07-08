@@ -39,16 +39,21 @@ export default function Section ({startdata}){
             </div>
         )
     }
+
+    function numberStringDateToWordString (string){
+        const date = new Date(string);
+        return date.toString().slice(4,15);
+    }
+
     const datetext = sectiondata.reduce((text, info)=> {
         if (info.className =="datestart"){
-            return info.text + text;
+            return numberStringDateToWordString(info.text) + text;
         } else if (info.className == "dateend"){   
-            return (info.text != "") ? text + "~" + info.text : text + "~current";
+            return (info.text != "") ? text + "~" + numberStringDateToWordString(info.text): text + "~current";
         } else{
             return text;
         }
     }, "")
-    console.log(datetext);
     return (
         <>
             {sectiondata.map((info)=> {
