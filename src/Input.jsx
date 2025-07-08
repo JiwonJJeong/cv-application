@@ -1,12 +1,13 @@
-export default function Input ({classname, text, type="text", labeltext}){
+export default function Input ({className, text, type="text", labeltext, onChange}){
 
         return (
             <>
-                <label>{labeltext}</label>
+                <label htmlFor={className}>{labeltext}</label>
                 <input
                 type={type}
                 value={text}
-                className={classname}
+                id={className}
+                onChange={onChange}
                 />
             </> )
 }
