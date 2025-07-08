@@ -1,6 +1,5 @@
-export default function Input ({classname, isEditing=false, text, type="text", labeltext}){
+export default function Input ({classname, text, type="text", labeltext}){
 
-    if (isEditing) {
         return (
             <>
                 <label>{labeltext}</label>
@@ -10,10 +9,4 @@ export default function Input ({classname, isEditing=false, text, type="text", l
                 className={classname}
                 />
             </> )
-    } 
-    return (
-            <p className={classname}>
-            {text}
-            </p>
-    )
 }
