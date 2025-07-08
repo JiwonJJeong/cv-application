@@ -1,11 +1,12 @@
 import './App.css'
-import Intro from "./Intro.jsx"
+import Section from "./Intro.jsx"
+import {introdata} from './defaultdata.js'
 
 function App() {
 
   return (
     <>
-       < Intro />
+       < Section startdata={introdata}/>
        {/*< EducationSection /> */}
        {/*< ExperienceSection /> */}
     </>
