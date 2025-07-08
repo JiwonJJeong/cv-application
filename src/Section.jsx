@@ -30,13 +30,13 @@ export default function Section ({startdata}){
 
     if (isEditing) {
         return (
-            <>
+            <div>
               {sectiondata.map((info)=> {
                 return <Input key={info.className} className={info.className} text={info.text}
-                labeltext={info.labeltext} onChange={handlechange} type={info.type}/>;
+                labeltext={info.label} onChange={handlechange} type={info.type}/>;
               })}
               <Submit onclick={handleclick}/>
-            </>
+            </div>
         )
     }
     return (
