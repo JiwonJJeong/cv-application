@@ -30,6 +30,7 @@ function App() {
   return (
     <>
        < Section startdata={introdata}/>
+       <h1><u>Education</u></h1>
        {educationIds.map((id)=>{
         return (<div key={id}>
         < Section  startdata={educationdata}/>
@@ -38,6 +39,7 @@ function App() {
         )
        })}
        < button onClick={addEducation}>Add Education</button>
+       <h1><u>Experience</u></h1>
        {experienceIds.map((id)=>{
         return (<div key={id}>
           < Section  startdata={experiencedata}/>
