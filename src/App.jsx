@@ -1,5 +1,5 @@
 import './App.css'
-import Section from "./Intro.jsx"
+import Section from "./Section.jsx"
 import {introdata} from './defaultdata.js'
 
 function App() {
