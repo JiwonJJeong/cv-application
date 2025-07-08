@@ -17,15 +17,33 @@ function App() {
     setExperienceIds(newIds);
   }
 
+  function removeEducation(idToRemove){
+    const newIds = educationIds.filter((id) => id!=idToRemove);
+    setEducationIds(newIds);
+  }
+
+  function removeExperience(idToRemove){
+    const newIds = experienceIds.filter((id) => id!=idToRemove);
+    setExperienceIds(newIds);
+  }
+
   return (
     <>
        < Section startdata={introdata}/>
        {educationIds.map((id)=>{
-        return < Section key={id} startdata={educationdata}/>
+        return (<div key={id}>
+        < Section  startdata={educationdata}/>
+        < button onClick={()=>removeEducation(id)}>Remove</button>
+        </div>
+        )
        })}
        < button onClick={addEducation}>Add Education</button>
        {experienceIds.map((id)=>{
-        return < Section key={id} startdata={experiencedata}/>
+        return (<div key={id}>
+          < Section  startdata={experiencedata}/>
+          < button onClick={()=>removeExperience(id)}>Remove</button>
+          </div>
+          )
        })}
        < button onClick={addExperience}>Add Experience</button>
     </>
