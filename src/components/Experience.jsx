@@ -4,8 +4,7 @@ import {useState} from "react";
 import {Edit, Submit} from './EditSubmit.jsx'
 
 export default function Experience ({data, extdata}){
-    const textAndId = {text: extdata.text, id: crypto.randomUUID()};
-    const [exts, setExts] = useState([textAndId]);
+    const [exts, setExts] = useState([{text: extdata.text, id: crypto.randomUUID()}]);
     const [isEditing, setEditing] = useState(false);
 
     function addExtendable(){
@@ -14,7 +13,7 @@ export default function Experience ({data, extdata}){
     }
 
     function removeExtendable(idToRemove){
-        const newExtIds = exts.filter((id)=> id != idToRemove);
+        const newExtIds = exts.filter((obj)=> obj.id != idToRemove);
         setExts(newExtIds);
     }
 
@@ -23,9 +22,9 @@ export default function Experience ({data, extdata}){
     }
 
     function handleChange(e){
-        console.log("handling change")
         const objectId = e.target.id;
         const newText = e.target.value;
+        console.log("handling change" + objectId + newText)
         const newdata = exts.map((data)=>{
             if (data.id == objectId){
                 return {...data, text: newText}
@@ -42,16 +41,16 @@ export default function Experience ({data, extdata}){
         <Section startdata={data} isEditingExternal={isEditing} setEditingExternal={setEditing}></Section>
         {(isEditing) ? 
             <>
-                {exts.map((id)=> <div key={id} className={extdata.className}>
-                <Input text={extdata.text} labelText={extdata.text} onChange={handleChange}></Input>
-                <button onClick={()=>removeExtendable(id)}>-</button>
+                {exts.map((obj)=> <div key={obj.id} className={extdata.className}>
+                <Input className={obj.id} text={obj.text} labeltext={extdata.label} onChange={handleChange}></Input>
+                <button onClick={()=>removeExtendable(obj.id)}>-</button>
                 </div>
                 )}
                 <button onClick={addExtendable}>Add Responsibility</button>
             </>
             :
             <ul className={extdata.className}>
-                {exts.map((id)=> <li key={id}>{extdata.text}</li>)}
+                {exts.map((obj)=> <li key={obj.id}>{obj.text}</li>)}
             </ul>
         }
         {(isEditing) ? <Submit onclick={handleclick}/> : <Edit onclick={handleclick} />}
