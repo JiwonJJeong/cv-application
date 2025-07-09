@@ -1,5 +1,6 @@
 import '../styles/App.css'
-import Section from "./Section.jsx"
+import SectionWEdit from "./SectionWEdit.jsx"
+import Experience from "./Experience.jsx"
 import {introdata, educationdata, experiencedata} from './defaultdata.js'
 import { useState } from 'react'
 
@@ -29,20 +30,22 @@ function App() {
 
   return (
     <>
-       < Section startdata={introdata}/>
+       < SectionWEdit startdata={introdata}/>
+
        <h1><u>Education</u></h1>
        {educationIds.map((id)=>{
         return (<div key={id}>
-        < Section  startdata={educationdata}/>
+        < SectionWEdit  startdata={educationdata}/>
         < button onClick={()=>removeEducation(id)}>Remove</button>
         </div>
         )
        })}
        < button onClick={addEducation}>Add Education</button>
+
        <h1><u>Experience</u></h1>
        {experienceIds.map((id)=>{
         return (<div key={id}>
-          < Section  startdata={experiencedata}/>
+          < Experience data={experiencedata.data} extdata={experiencedata.extendable}/>
           < button onClick={()=>removeExperience(id)}>Remove</button>
           </div>
           )

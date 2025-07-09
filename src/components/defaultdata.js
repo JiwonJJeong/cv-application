@@ -11,13 +11,13 @@ const educationdata = [
     {className: "dateend", text: "2024-05-04", label:"End Date: ", type:"date"}
 ];
 
-const experiencedata = [
+const experiencedata = { data:[
     {className: "companyname", text: "Odin Inc.", label:"Company*: "},
     {className: "position", text: "Front-end Dev", label:"Position*: "},
     {className: "datestart", text: "2024-03-15", label:"Start Date*: ", type:"date"},
     {className: "dateend", text: "", label:"End Date: ", type:"date"},
-    {className: "responsibility1", text: "Launch 5 pages for company website with React", label:"Responsibilities*: "},
-    {className: "responsibility2", text: "Improve accessibility to AA for 20 pages", label:"Responsibilities*: "},
-]
+],
+    extendable: {className: "responsibility", text: "Launch 5 pages for company website with React", label:"Responsibilities*: "}
+}
 
 export {introdata, educationdata, experiencedata};
