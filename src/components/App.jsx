@@ -30,7 +30,10 @@ function App() {
   }
 
   function finalize(){
-    setFinalized(true);
+    const userResponse = confirm("This will prevent further editing! Are you sure?");
+    if (userResponse){
+      setFinalized(true)
+    };
   }
 
   return (
