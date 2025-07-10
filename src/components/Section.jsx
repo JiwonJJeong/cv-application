@@ -50,7 +50,7 @@ export default function Section ({startdata, isEditingExternal}){
         }
     }, "")
     return (
-        <>
+        <div>
             {sectiondata.map((info)=> {
                 switch (info.className){
                     case "name":
@@ -63,6 +63,6 @@ export default function Section ({startdata, isEditingExternal}){
                         return <p key={info.className} className={info.className}>{info.text}</p>
                 }
             })}
-        </>
+        </div>
     )
 }

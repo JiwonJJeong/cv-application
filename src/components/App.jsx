@@ -30,24 +30,24 @@ function App() {
 
   return (
     <>
-       < SectionWEdit startdata={introdata}/>
+       <article>< SectionWEdit startdata={introdata}/></article>
 
-       <h1><u>Education</u></h1>
+       {educationIds.length>0 && <h1><u>Education</u></h1>}
        {educationIds.map((id)=>{
-        return (<div key={id}>
-        < SectionWEdit  startdata={educationdata}/>
+        return (<article key={id}>
+        < SectionWEdit startdata={educationdata}/>
         < button onClick={()=>removeEducation(id)}>Remove</button>
-        </div>
+        </article>
         )
        })}
        < button onClick={addEducation}>Add Education</button>
 
-       <h1><u>Experience</u></h1>
+       {experienceIds.length>0 && <h1><u>Experience</u></h1>}
        {experienceIds.map((id)=>{
-        return (<div key={id}>
+        return (<article key={id}>
           < Experience data={experiencedata.data} extdata={experiencedata.extendable}/>
           < button onClick={()=>removeExperience(id)}>Remove</button>
-          </div>
+          </article>
           )
        })}
        < button onClick={addExperience}>Add Experience</button>
