@@ -2,7 +2,7 @@ import Section from "./Section.jsx"
 import {useState} from "react";
 import {Edit, Submit} from './EditSubmit.jsx'
 
-export default function SectionWEdit({startdata}){
+export default function SectionWEdit({startdata, isFinalized}){
     const [isEditing, setEditing] = useState(false);
 
     function handleclick () {
@@ -12,7 +12,7 @@ export default function SectionWEdit({startdata}){
     return (
         <>
             <Section startdata={startdata} isEditingExternal={isEditing}/>
-            {(isEditing) ? <Submit onclick={handleclick}/> : <Edit onclick={handleclick} />}
+            {(!isFinalized) && ((isEditing) ? <Submit onclick={handleclick}/> : <Edit onclick={handleclick} />)}
         </>
     )
 }

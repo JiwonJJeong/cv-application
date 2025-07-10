@@ -3,7 +3,7 @@ import Input from "./Input.jsx"
 import {useState} from "react";
 import {Edit, Submit} from './EditSubmit.jsx'
 
-export default function Experience ({data, extdata}){
+export default function Experience ({data, extdata, isFinalized}){
     const [exts, setExts] = useState([{text: extdata.text, id: crypto.randomUUID()}]);
     const [isEditing, setEditing] = useState(false);
 
@@ -38,8 +38,8 @@ export default function Experience ({data, extdata}){
 
     return(
     <>
-        <Section startdata={data} isEditingExternal={isEditing} setEditingExternal={setEditing}></Section>
-        {(isEditing) ? 
+        <Section isFinalized={isFinalized} startdata={data} isEditingExternal={isEditing} setEditingExternal={setEditing}></Section>
+        {(isEditing && !isFinalized) ? 
             <>
                 {exts.map((obj)=> <div key={obj.id} className={extdata.className}>
                 <Input className={obj.id} text={obj.text} labeltext={extdata.label} onChange={handleChange}></Input>
@@ -53,7 +53,7 @@ export default function Experience ({data, extdata}){
                 {exts.map((obj)=> <li key={obj.id}>{obj.text}</li>)}
             </ul>
         }
-        {(isEditing) ? <Submit onclick={handleclick}/> : <Edit onclick={handleclick} />}
+        {(!isFinalized) && ((isEditing) ? <Submit onclick={handleclick}/> : <Edit onclick={handleclick} />)}
     </>
     )   
 }

@@ -3,7 +3,7 @@ import Input from './Input.jsx'
 
 
 // next step: turn this to a generic section to be applicable to other things maybe?
-export default function Section ({startdata, isEditingExternal}){
+export default function Section ({startdata, isEditingExternal, isFinalized}){
     const [sectiondata, setSectionData] = useState(startdata);
     // sectiondata should be an array (to use map/reduce over) of objects
     // each object should be info describing: text content, css class, label text, type (if applicable)
@@ -24,7 +24,7 @@ export default function Section ({startdata, isEditingExternal}){
         setSectionData(newdata);
     }
 
-    if (isEditingExternal) {
+    if (isEditingExternal && !isFinalized) {
         return (
             <div>
               {sectiondata.map((info)=> {

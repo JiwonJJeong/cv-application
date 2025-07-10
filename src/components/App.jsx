@@ -7,6 +7,7 @@ import { useState } from 'react'
 function App() {
   const [educationIds, setEducationIds] = useState([crypto.randomUUID()]);
   const [experienceIds, setExperienceIds] = useState([crypto.randomUUID()]);
+  const [isFinalized, setFinalized] = useState(false);
 
   function addEducation(){
     const newIds = [...educationIds,crypto.randomUUID()];
@@ -28,29 +29,34 @@ function App() {
     setExperienceIds(newIds);
   }
 
+  function finalize(){
+    setFinalized(true);
+  }
+
   return (
     <>
-       <article>< SectionWEdit startdata={introdata}/></article>
+       <article>< SectionWEdit isFinalized={isFinalized} startdata={introdata}/></article>
 
        {educationIds.length>0 && <h1><u>Education</u></h1>}
        {educationIds.map((id)=>{
         return (<article key={id}>
-        < SectionWEdit startdata={educationdata}/>
-        < button onClick={()=>removeEducation(id)}>Remove</button>
+        < SectionWEdit isFinalized={isFinalized} startdata={educationdata}/>
+        {(!isFinalized) && < button onClick={()=>removeEducation(id)}>Remove</button>}
         </article>
         )
        })}
-       < button onClick={addEducation}>Add Education</button>
+       {!isFinalized && < button onClick={addEducation}>Add Education</button>}
 
        {experienceIds.length>0 && <h1><u>Experience</u></h1>}
        {experienceIds.map((id)=>{
         return (<article key={id}>
-          < Experience data={experiencedata.data} extdata={experiencedata.extendable}/>
-          < button onClick={()=>removeExperience(id)}>Remove</button>
+          < Experience isFinalized={isFinalized} data={experiencedata.data} extdata={experiencedata.extendable}/>
+          {(!isFinalized) && < button onClick={()=>removeExperience(id)}>Remove</button>}
           </article>
           )
        })}
-       < button onClick={addExperience}>Add Experience</button>
+       {!isFinalized && < button onClick={addExperience}>Add Experience</button>}
+       {!isFinalized && < button onClick={finalize}>I'm done!</button>}
     </>
   )
 }
