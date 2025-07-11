@@ -1,0 +1,14 @@
+:root{
+    background-color: rgb(172, 255, 230);
+}
+
+h1,h2,li,ul,p{
+    margin:0;
+    padding:0;
+}
+
+/*overall layout */
+div#root{
+    display: flex;
+    flex-direction:column;
+}

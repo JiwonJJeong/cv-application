@@ -3,6 +3,7 @@ import Input from "./Input.jsx"
 import {useState} from "react";
 import {Edit, Submit} from './EditSubmit.jsx'
 
+
 export default function Experience ({data, extdata, isFinalized}){
     const [exts, setExts] = useState([{text: extdata.text, id: crypto.randomUUID()}]);
     const [isEditing, setEditing] = useState(false);

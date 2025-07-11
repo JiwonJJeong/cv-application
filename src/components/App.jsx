@@ -1,4 +1,5 @@
 import '../styles/App.css'
+import "../styles/Section.css"
 import SectionWEdit from "./SectionWEdit.jsx"
 import Experience from "./Experience.jsx"
 import {introdata, educationdata, experiencedata} from './defaultdata.js'
