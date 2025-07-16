@@ -29,7 +29,7 @@ export default function Section ({startdata, isEditingExternal, isFinalized}){
             <form>
               {sectiondata.map((info)=> {
                 return <Input key={info.className} className={info.className} text={info.text}
-                labeltext={info.label} onChange={handlechange} type={info.type}/>;
+                labeltext={info.label} onChange={handlechange} type={info.type} required={info.required}/>;
               })}
             </form>
         )

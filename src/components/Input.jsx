@@ -1,4 +1,4 @@
-export default function Input ({className, text, type="text", labeltext, onChange}){
+export default function Input ({className, text, type="text", labeltext, onChange, required=false}){
 
         return (
             <div >
@@ -8,6 +8,7 @@ export default function Input ({className, text, type="text", labeltext, onChang
                 value={text}
                 id={className}
                 onChange={onChange}
+                required={required}
                 />
             </div> )
 }

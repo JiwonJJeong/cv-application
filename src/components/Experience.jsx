@@ -43,7 +43,7 @@ export default function Experience ({data, extdata, isFinalized}){
         {(isEditing && !isFinalized) ? 
             <>
                 {exts.map((obj)=> <form key={obj.id} className={extdata.className}>
-                <Input className={obj.id} text={obj.text} labeltext={extdata.label} onChange={handleChange}></Input>
+                <Input className={obj.id} text={obj.text} labeltext={extdata.label} onChange={handleChange} required={obj.required}></Input>
                 <button onClick={()=>removeExtendable(obj.id)}>-</button>
                 </form>
                 )}
