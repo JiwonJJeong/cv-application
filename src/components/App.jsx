@@ -39,7 +39,7 @@ function App() {
 
   return (
     <>
-       <article>< SectionWEdit isFinalized={isFinalized} startdata={introdata}/></article>
+       <article className="header">< SectionWEdit isFinalized={isFinalized} startdata={introdata}/></article>
 
        {educationIds.length>0 && <h1><u>Education</u></h1>}
        {educationIds.map((id)=>{
