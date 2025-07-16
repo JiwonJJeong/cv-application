@@ -60,7 +60,7 @@ function App() {
           )
        })}
        {!isFinalized && < button onClick={addExperience}>Add Experience</button>}
-       {!isFinalized && < button onClick={finalize}>I'm done!</button>}
+       {!isFinalized && < button onClick={finalize} className="done">I'm done!</button>}
     </>
   )
 }

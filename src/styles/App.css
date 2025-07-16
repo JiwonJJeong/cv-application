@@ -12,3 +12,24 @@ div#root{
     display: flex;
     flex-direction:column;
 }
+
+button{
+    background-color:rgb(255, 208, 154);
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 2px 20px;
+    margin: 2px;
+    width: max-content;
+}
+
+button.done{
+    background-color:rgb(255, 112, 112);
+}
+
+button:hover{
+    transform: translateY(-2px);   
+}
+
+button:active{
+    opacity: 70%;
+}

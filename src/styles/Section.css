@@ -33,6 +33,7 @@ form {
             border-radius: 5px;
             padding: 5px 10px;
             margin-left: 5px;
+            border: 2px gray solid;
         }
     }
 }
@@ -45,4 +46,8 @@ form.responsibility{
     div{
         flex-grow:1;
     }
+}
+
+input:hover{
+    border-color: blue;
 }
