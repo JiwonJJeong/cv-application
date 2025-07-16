@@ -15,7 +15,7 @@ This web page allows creating a simple, expandable resume by inputting form info
 |------------------|--------------------------------------------------|
 | Vite             | Front-end Toolchain|
 | React.js         | Component-based Architecture |
-| JavaScript       | Deployment and Hosting       |
+| Vercel           | Deployment and Hosting       |
 
 ## Major takeaways
 * React functional syntax is specific with {} vs ()
