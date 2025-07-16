@@ -26,12 +26,12 @@ export default function Section ({startdata, isEditingExternal, isFinalized}){
 
     if (isEditingExternal && !isFinalized) {
         return (
-            <div>
+            <form>
               {sectiondata.map((info)=> {
                 return <Input key={info.className} className={info.className} text={info.text}
                 labeltext={info.label} onChange={handlechange} type={info.type}/>;
               })}
-            </div>
+            </form>
         )
     }
 

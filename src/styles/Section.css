@@ -5,7 +5,7 @@ article{
         display:grid;
         grid-template-columns: auto max-content;
         
-        p {
+        p,div {
             grid-column: 1 / 2;
         }
 
@@ -14,5 +14,35 @@ article{
             grid-row-start: 0;
             grid-row-end: -1;
         }
+    }
+
+    li{
+        margin-left: 25px;
+    }
+}
+
+form {
+    > div{
+        display: flex;
+        flex-direction: row;
+        margin: 2px;
+        align-items: center;
+
+        input{
+            flex-grow:1;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin-left: 5px;
+        }
+    }
+}
+
+form.responsibility{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    div{
+        flex-grow:1;
     }
 }

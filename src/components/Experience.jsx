@@ -42,10 +42,10 @@ export default function Experience ({data, extdata, isFinalized}){
         <Section isFinalized={isFinalized} startdata={data} isEditingExternal={isEditing} setEditingExternal={setEditing}></Section>
         {(isEditing && !isFinalized) ? 
             <>
-                {exts.map((obj)=> <div key={obj.id} className={extdata.className}>
+                {exts.map((obj)=> <form key={obj.id} className={extdata.className}>
                 <Input className={obj.id} text={obj.text} labeltext={extdata.label} onChange={handleChange}></Input>
                 <button onClick={()=>removeExtendable(obj.id)}>-</button>
-                </div>
+                </form>
                 )}
                 <button onClick={addExtendable}>Add Responsibility</button>
             </>
